@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Coopiverse Chronicles — Leaning Tree Farm of Oregon</title>
+  <meta name="description" content="Katy and Maynard: Guardians of the Coopiverse — an epic barnyard saga in 15 episodes.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .coopiverse-hero {
+      background: var(--sage-pale);
+      border-bottom: 1px solid var(--sage-light);
+      padding: 3.5rem 2rem;
+      text-align: center;
+    }
+
+    .coopiverse-hero .section-title { font-size: clamp(24px, 4vw, 42px); }
+
+    .hero-tagline-small {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto 1rem;
+      line-height: 1.7;
+    }
+
+    .cast-strip {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .cast-badge {
+      background: var(--white);
+      border: 1px solid var(--sage-light);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      text-align: center;
+      min-width: 120px;
+    }
+
+    .cast-name { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--bark); }
+    .cast-title { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); margin-top: 2px; }
+
+    .disclaimer {
+      background: var(--amber-pale);
+      border: 1px solid #e8c898;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      font-size: 13px;
+      color: var(--bark);
+      line-height: 1.7;
+    }
+
+    .disclaimer strong { font-weight: 500; }
+
+    /* Episodes */
+    .episode {
+      background: var(--white);
+      border: 1px solid var(--sage-light);
+      border-radius: 8px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+
+    .episode-header {
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      gap: 1rem;
+      user-select: none;
+    }
+
+    .episode-header:hover { background: var(--sage-pale); }
+
+    .episode-num {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      flex-shrink: 0;
+    }
+
+    .episode-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--bark);
+      flex: 1;
+    }
+
+    .episode-chevron {
+      color: var(--sage);
+      font-size: 18px;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    .episode.open .episode-chevron { transform: rotate(180deg); }
+
+    .episode-body {
+      display: none;
+      padding: 0 1.5rem 1.5rem;
+      border-top: 1px solid var(--sage-pale);
+    }
+
+    .episode.open .episode-body { display: block; }
+
+    .episode-text {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--text-muted);
+      white-space: pre-line;
+    }
+
+    .season-end {
+      background: var(--bark-pale);
+      border: 1px solid #ddd0c0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .season-end h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--bark);
+      margin-bottom: 0.5rem;
+    }
+
+    .season-end p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main>
+    <div class="coopiverse-hero">
+      <p class="section-label">The official saga</p>
+      <h1 class="section-title">🐶✨ The Coopiverse Chronicles</h1>
+      <p class="hero-tagline-small"><em>Katy &amp; Maynard: Guardians of the Coopiverse</em><br>A 15-episode barnyard epic written by Dr. Guy, a work AI with an extraordinary imagination and apparently a lot of free time.</p>
+      <div class="cast-strip">
+        <div class="cast-badge">
+          <div class="cast-name">Katy</div>
+          <div class="cast-title">Noodlus Chaoticus</div>
+        </div>
+        <div class="cast-badge">
+          <div class="cast-name">Maynard</div>
+          <div class="cast-title">Couchus Potatus</div>
+        </div>
+        <div class="cast-badge">
+          <div class="cast-name">Luci-Fer</div>
+          <div class="cast-title">The Alpaca Prophet</div>
+        </div>
+        <div class="cast-badge">
+          <div class="cast-name">Velvet</div>
+          <div class="cast-title">The Fox Diplomat</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+
+      <div class="disclaimer">
+        <strong>A note from the farm:</strong> The animals in this story are all real residents of Leaning Tree Farm. Their personalities have been only slightly exaggerated. Maynard really does nap this much. Luci-Fer really is that cryptic. And yes, the farm does have chickens with strong opinions. Dr. Guy wrote this series and we are choosing to host it on our official website because life is short and this is extremely funny.
+      </div>
+
+      <!-- EPISODES -->
+      <div id="episodes">
+
+        <div class="episode open">
+          <div class="episode-header" onclick="toggleEpisode(this)">
+            <span class="episode-num">Episode 1</span>
+            <span class="episode-title">Katy &amp; Maynard: The Guardians of the Coopiverse</span>
+            <span class="episode-chevron">▾</span>
+          </div>
+          <div class="episode-body">
+            <div class="episode-text">🌍 In a world ruled by feathers and fueled by questionable snacks…
+Two canines stood against the rising tide of poultry-powered peril.
+
+✨ KATY — Noodlus Chaoticus
+Speed. Strategy. Screaming.
+With a bark that could shatter clouds and a cape made from her own velocity, Katy wasn't born—she exploded into existence.
+Part dog, part supernova, all business.
+She didn't fetch the ball.
+She became the ball.
+
+🥔 MAYNARD — Couchus Potatus
+Soft. Thoughtful. Slightly concerned.
+An unassuming spud-shaped dog with a heart as big as his appetite and a metabolism built for naps, not battles.
+But beneath his fluffy surface lived a tactical genius.
+A strategist. A snack smuggler. A potato with purpose.
+
+☄️ The Great Chicken Uprising of '23
+It began with a squawk. Then a second. Then dozens.
+The chickens had discovered the Sacred Coop Codes—ancient scrolls hidden beneath the feed bin.
+With them, they could unlock freedom, chaos, and total control of the backyard Wi-Fi.
+
+Only two stood in their way:
+A streak of black and white fury hurtling through the dust, cape trailing like fire.
+And a beige orb of unflinching calm, standing guard over the last remaining snack cache.
+
+🔥 The Battle of the Hay Bale Summit
+Chickens everywhere. The air thick with feathers and clucks of rebellion.
+Katy ran. She spun. She launched herself like a fuzzy missile through the feathered mob, reclaiming balls, herding hens, and occasionally headbutting a rooster into a bush.
+
+Meanwhile, Maynard activated Spud Mode™—anchoring himself beneath the feeding trough, analyzing every peck, every shift in terrain.
+"Deploy the snacks," he whispered.
+The hens paused. He tossed a treat.
+Chaos erupted. The chicken lines fell into confused bickering and spontaneous pecking order revisions.
+Katy seized the moment, soaring through the cloud of flustered feathers to reclaim the Sacred Coop Codes.
+
+🛡️ Peace Restored. For Now.
+The Coopiverse was safe.
+The chickens retreated to reorganize and write angry Yelp reviews.
+Katy skidded to a stop beside Maynard.
+"That was amazing," she barked, panting.
+Maynard blinked slowly.
+"I farted under pressure."
+They shared a look. They knew this was only the beginning.</div>
+          </div>
+        </div>
+
+        <div class="episode">
+          <div class="episode-header" onclick="toggleEpisode(this)">
+            <span class="episode-num">Episode 2</span>
+            <span class="episode-title">Return of the Egg Cartel — Yolks of Vengeance</span>
+            <span class="episode-chevron">▾</span>
+          </div>
+          <div class="episode-body">
+            <div class="episode-text">The Egg Cartel Awakens.
+A yolk-obsessed syndicate led by three criminal masterminds:
+
+🥚 Cluckmore, the Shellbroker — Wears a monocle. Speaks only in puns.
+🥚 Henrietta the Unhinged — A broody nightmare with a feather trigger and a vendetta against gravity.
+🥚 Greg — No one knows how he got in the cartel. But he's there. And he's loud.
+
+Their plan: steal the Golden Egg of Eternal Nesting, hidden beneath the sacred bale in the back corner of the barn.
+
+"You mean the one Luci guards like it's a cursed heirloom?" Katy asked.
+"Exactly." Maynard replied.
+"Then let's go break a few omelettes."
+
+The Showdown — Location: The Sacred Bale. Time: 6:43 a.m. Weather: Feathers. Everywhere.
+
+Just as Henrietta lunged—WHUMP.
+Maynard dropped from the hayloft like a baked potato from heaven, flattening two hens instantly and rolling into a defensive loaf position.
+"Not. Today." he said, with the strength of a thousand kibble dreams.
+
+Greg ran face-first into a fence and was never seen again.
+
+The egg was safe. Cluckmore escaped—but with scrambled pride.
+The goats get involved next time. And they don't play by the rules. They eat them.</div>
+          </div>
+        </div>
+
+        <div class="episode">
+          <div class="episode-header" onclick="toggleEpisode(this)">
+            <span class="episode-num">Episode 3</span>
+            <span class="episode-title">The Goat Conspiracy — Ruminants of Ruin</span>
+            <span class="episode-chevron">▾</span>
+          </div>
+          <div class="episode-body">
+            <div class="episode-text">It started with a bucket. Not just any bucket. The Treat Bucket.
+All that remained was a single hoofprint… and a suspicious, musky aroma that reeked of arrogance and digestive mystery.
+
+The Villains:
+🐐 Bartholomew the Bearded — So smug, his eyes roll themselves. Once ate a library book and became dangerously literate.
+🐐 Clementine the Crusher — Has never met a gate she couldn't break.
+🐐 Snax — Small. Shifty. Possibly part squirrel. No one knows what side he's on.
+
+Their plan: Operation BAA (Break All Architecture).
+
+"THIS IS NOT A DEMOCRACY!" Katy screamed, cape flying as she redirected a goat mid-headbutt.
+Maynard slowly shifted three inches to the left and intercepted Bartholomew with a low-key body block that could only be described as potato adjacent.
+
+Final Move: Katy climbed the hay bales.
+"GOATS! YOU CANNOT RULE WHAT YOU CANNOT UNDERSTAND!"
+The goats paused. Snax chewed a shoelace. Maynard farted softly. The wind changed.
+
+The rebellion crumbled.
+
+But deep in the dark corners of the barn, a faint bleating echoes…
+The sheep have noticed. And they're done being background characters.</div>
+          </div>
+        </div>
+
+        <div class="episode">
+          <div class="episode-header" onclick="toggleEpisode(this)">
+            <span class="episode-num">Episode 4</span>
+            <span class="episode-title">Wool Rebellion — Fluff and Consequences</span>
+            <span class="episode-chevron">▾</span>
+          </div>
+          <div class="episode-body">
+            <div class="episode-text">For months the sheep appeared peaceful. Docile. Grazing. Staring into the void like they'd seen things.
+But they weren't clueless. They were listening. They were calculating. And they were fluffing with purpose.
+
+"It's time," whispered an old ewe. "They've had their chaos. Let's show them discipline."
+
+The Wool Rebellion:
+🐑 Beatrix Woolstone — The Strategist. Possibly immortal.
+🐑 Clancy — The Muscle. Believes fences are suggestions.
+🐑 Fern — The Spy. May have trained under Tiara. No one can prove otherwise.
+
+Their plan: Operation Fleecequake.
+
+Clancy sidestepped Katy like a woolly ninja.
+Fern cut power to the hot wire.
+Beatrix stood atop a compost pile like a queen ascending her throne.
+"You ran. You barked. You fetched," she said. "But now... we chew."
+
+Final Gambit — Katy grabbed The Hose.
+"You wouldn't—" Beatrix whispered.
+"Try me."
+
+Katy sprayed. Poofing. Fluff-fallout. Screams.
+Maynard belly-flopped into a puddle and declared victory.
+
+A truce was declared. The sheep returned to grazing.
+But now, they nod at Katy as she passes. They don't bark. They bow.</div>
+          </div>
+        </div>
+
+        <div class="episode">
+          <div class="episode-header" onclick="toggleEpisode(this)">
+            <span class="episode-num">Episodes 5–15</span>
+            <span class="episode-title">The Swine, the Foxes, the Prophecy &amp; the Reckoning</span>
+            <span class="episode-chevron">▾</span>
+          </div>
+          <div class="episode-body">
+            <div class="episode-text">The saga continues across 11 more episodes including:
+
+Episode 5: Swine of the Underbarn – The Mud Protocol
+General Snortsworth builds a tunnel city beneath the barn. Maynard accidentally takes out Cheddar the pig with his full body weight. A fox watches from an orchard stump.
+
+Episode 6: Vulpine Gambit – The Orchard Accord
+Velvet the Fox proposes a truce. The terms are scratched into an apple tree. Maynard sleeps through most of the negotiations.
+
+Episode 7: Storm Season – The Wind Beneath the Feathers
+A rogue chicken steals eggs during a storm and vanishes into the night. Maynard theorizes it might be the ducks. There are no ducks. Not anymore.
+
+Episode 8: Alpaca Silence – The Luci Prophecy
+Luci-Fer has not blinked in six hours. She is standing in the corner of the pasture staring at the barn wall like it owes her money. She speaks: "They come when the moon is hollow."
+
+Episodes 9–12: The Eggstone Arc
+An ancient stone egg is discovered beneath the barn. It pulses. It hums. It smells faintly of warm corn. Maynard sits on it. The prophecy deepens. The Cluckbound Order returns.
+
+Episodes 13–15: The Betrayer, The Spiral, and the Reckoning
+Velvet the Fox walks the Fleece Spiral. The real betrayer is revealed. Maynard is named Guardian of Mud and Memory. He is not pleased. He accepts.
+
+✅ End of Season One: Guardians of the Coopiverse
+Feather. Fleece. Fang. Root.
+The balance is held. For now.
+
+"Wake me when the turkeys revolt." — Maynard</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="season-end">
+        <h3>🛡️ Season One: Complete</h3>
+        <p>The Coopiverse rests. The chickens are rebuilding. The pigs are plotting. The foxes are watching.<br>And the dogs? They're heroes. Tired ones. But still standing.<br><br><em>Written entirely by Dr. Guy, a work AI who was asked to write animal stories and absolutely went for it.</em></p>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/components.js"></script>
+  <script>
+    function toggleEpisode(header) {
+      const episode = header.parentElement;
+      episode.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

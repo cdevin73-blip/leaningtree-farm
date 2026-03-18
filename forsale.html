@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Sale — Leaning Tree Farm of Oregon</title>
+  <meta name="description" content="Registered Barbados Blackbelly sheep for sale from Leaning Tree Farm of Oregon.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .breed-banner {
+      background: var(--amber-pale);
+      border: 1px solid #e8c898;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      font-size: 14px;
+      color: var(--bark);
+      line-height: 1.7;
+    }
+    .breed-banner strong { font-weight: 500; }
+
+    .listings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .listing-card { background: var(--white); border: 1px solid var(--sage-light); border-radius: 8px; overflow: hidden; transition: border-color 0.2s; }
+    .listing-card:hover { border-color: var(--sage); }
+
+    .listing-img {
+      background: var(--sage-pale);
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--sage-light);
+      overflow: hidden;
+    }
+
+    .listing-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .listing-body { padding: 1.1rem 1.25rem 1.25rem; }
+
+    .listing-reg {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .listing-reg::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
+
+    .listing-name { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--bark); margin-bottom: 3px; }
+    .listing-sub { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.75rem; }
+
+    .detail-list { list-style: none; margin-bottom: 0.85rem; display: flex; flex-direction: column; gap: 0.35rem; }
+    .detail-list li { font-size: 13px; color: var(--text-muted); display: flex; gap: 8px; line-height: 1.5; }
+    .detail-label { font-weight: 500; color: var(--bark-light); min-width: 75px; flex-shrink: 0; }
+
+    .listing-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--sage-pale);
+    }
+
+    .listing-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    .listing-price { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--bark); }
+    .listing-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+
+    /* Pedigrees */
+    .pedigree-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--sage-light); }
+
+    .pedigree-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 420px) { .pedigree-grid { grid-template-columns: 1fr; } }
+
+    .pedigree-card { background: var(--white); border: 1px solid var(--sage-light); border-radius: 8px; overflow: hidden; }
+
+    .pedigree-header {
+      padding: 1rem 1.25rem 0.75rem;
+      border-bottom: 1px solid var(--sage-pale);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .pedigree-name { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--bark); margin-bottom: 2px; }
+    .pedigree-reg { font-size: 11px; letter-spacing: 0.08em; color: var(--sage); }
+    .pedigree-meta { text-align: right; }
+    .pedigree-dob { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+
+    .pedigree-body { padding: 1rem 1.25rem; }
+
+    .parents-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 0.75rem; }
+
+    .parent-block { background: var(--sage-pale); border-radius: 6px; padding: 0.6rem 0.75rem; }
+    .parent-role { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 2px; }
+    .parent-name { font-size: 13px; color: var(--bark); font-weight: 500; line-height: 1.4; }
+    .parent-reg { font-size: 11px; color: var(--text-muted); }
+
+    .gp-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; }
+    .gp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem; }
+    .gp-item { font-size: 11px; color: var(--text-muted); line-height: 1.5; padding: 0.3rem 0.5rem; background: var(--cream); border-radius: 4px; border: 1px solid var(--sage-pale); }
+    .gp-item span { display: block; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); }
+
+    .sale-note { background: var(--sage-pale); border: 1px solid var(--sage-light); border-radius: 6px; padding: 0.6rem 0.85rem; margin-top: 0.75rem; font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+    .sale-note strong { color: var(--bark); font-weight: 500; }
+
+    .bloodline-note {
+      background: var(--amber-pale);
+      border: 1px solid #e8c898;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-top: 1.5rem;
+      font-size: 13px;
+      color: var(--bark);
+      line-height: 1.7;
+    }
+    .bloodline-note strong { font-weight: 500; }
+
+    .registry-footer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--sage-light); font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+    .registry-footer a { color: var(--sage); }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main>
+    <div class="page-header">
+      <p class="section-label">Current listings</p>
+      <h1 class="section-title">Registered Barbados Blackbelly Sheep</h1>
+      <p class="section-body">Animals available from our BBSAI-registered flock, with documented bloodlines going back multiple generations.</p>
+    </div>
+
+    <div class="section">
+
+      <div class="breed-banner">
+        <strong>Leaning Tree Farm is a registered Barbados Blackbelly breeder.</strong> All animals are from BBSAI-registered bloodlines and can be registered with full paperwork upon purchase. We breed for correct conformation, disposition, and breed standard — the characteristic tan coat, black belly, and clean-legged, polled profile. Pedigrees for our full flock are listed below.
+      </div>
+
+      <div class="listings-grid">
+
+        <!-- EWE LAMB #24 -->
+        <div class="listing-card">
+          <div class="listing-img">
+            <svg width="110" height="120" viewBox="0 0 110 120" fill="none">
+              <ellipse cx="55" cy="114" rx="38" ry="4" fill="#c8d9c0" opacity="0.4"/>
+              <ellipse cx="55" cy="76" rx="24" ry="17" fill="#c8966a"/>
+              <ellipse cx="55" cy="52" rx="15" ry="13" fill="#c8966a"/>
+              <ellipse cx="55" cy="66" rx="16" ry="9" fill="#1a1008"/>
+              <circle cx="50" cy="50" r="2" fill="#1a1008"/>
+              <circle cx="60" cy="50" r="2" fill="#1a1008"/>
+              <ellipse cx="47" cy="42" rx="3.5" ry="5.5" fill="#c8966a" transform="rotate(-12 47 42)"/>
+              <ellipse cx="63" cy="42" rx="3.5" ry="5.5" fill="#c8966a" transform="rotate(12 63 42)"/>
+              <rect x="36" y="90" width="8" height="22" rx="3" fill="#a07050"/>
+              <rect x="46" y="92" width="8" height="20" rx="3" fill="#a07050"/>
+              <rect x="58" y="92" width="8" height="20" rx="3" fill="#a07050"/>
+              <rect x="68" y="90" width="8" height="22" rx="3" fill="#a07050"/>
+            </svg>
+          </div>
+          <div class="listing-body">
+            <div class="listing-reg">BBSAI Registerable</div>
+            <div class="listing-name">Ewe lamb #24</div>
+            <div class="listing-sub">Barbados Blackbelly · Tarah's daughter</div>
+            <ul class="detail-list">
+              <li><span class="detail-label">Born</span>May 22, 2024 (single)</li>
+              <li><span class="detail-label">Sire</span>Bush Creek Shaun</li>
+              <li><span class="detail-label">Dam</span>Bush Creek Tarah</li>
+              <li><span class="detail-label">Size</span>Smaller framed — dam is petite for the breed</li>
+              <li><span class="detail-label">Papers</span>Can be registered with BBSAI on purchase</li>
+            </ul>
+            <div class="listing-desc">An alert, independent girl — flighty by nature but showing improvement with regular handling. Would suit an experienced owner comfortable working with a more cautious animal. Correct breed conformation and coloring throughout.</div>
+            <div class="listing-footer">
+              <span class="listing-price">$350</span>
+              <div class="listing-tags">
+                <span class="tag">Ewe lamb</span>
+                <span class="tag tag-amber">Registerable</span>
+                <span class="tag">Available now</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WETHER #26 -->
+        <div class="listing-card">
+          <div class="listing-img">
+            <svg width="110" height="120" viewBox="0 0 110 120" fill="none">
+              <ellipse cx="55" cy="114" rx="38" ry="4" fill="#c8d9c0" opacity="0.4"/>
+              <ellipse cx="55" cy="76" rx="26" ry="19" fill="#b8855a"/>
+              <ellipse cx="55" cy="51" rx="16" ry="14" fill="#b8855a"/>
+              <ellipse cx="55" cy="66" rx="18" ry="10" fill="#1a1008"/>
+              <circle cx="49" cy="49" r="2.2" fill="#1a1008"/>
+              <circle cx="61" cy="49" r="2.2" fill="#1a1008"/>
+              <ellipse cx="46" cy="40" rx="3.5" ry="6" fill="#b8855a" transform="rotate(-12 46 40)"/>
+              <ellipse cx="64" cy="40" rx="3.5" ry="6" fill="#b8855a" transform="rotate(12 64 40)"/>
+              <rect x="33" y="90" width="8" height="24" rx="3" fill="#907050"/>
+              <rect x="44" y="92" width="8" height="22" rx="3" fill="#907050"/>
+              <rect x="56" y="92" width="8" height="22" rx="3" fill="#907050"/>
+              <rect x="67" y="90" width="8" height="24" rx="3" fill="#907050"/>
+              <path d="M67 77 Q78 71 80 78 Q77 83 69 80Z" fill="#b8855a"/>
+            </svg>
+          </div>
+          <div class="listing-body">
+            <div class="listing-reg">BBSAI Registerable</div>
+            <div class="listing-name">Wether lamb #26</div>
+            <div class="listing-sub">Barbados Blackbelly · Tess's son</div>
+            <ul class="detail-list">
+              <li><span class="detail-label">Born</span>May 5, 2024 (twin)</li>
+              <li><span class="detail-label">Sire</span>Bush Creek Shaun</li>
+              <li><span class="detail-label">Dam</span>Bush Creek Tess</li>
+              <li><span class="detail-label">Size</span>Smaller framed — dam is petite for the breed</li>
+              <li><span class="detail-label">Papers</span>Can be registered with BBSAI on purchase</li>
+            </ul>
+            <div class="listing-desc">A calm, easygoing wether with a naturally gentle temperament — the kind of animal that warms up quickly with regular handling. Would make an excellent pasture companion. Wethered.</div>
+            <div class="listing-footer">
+              <span class="listing-price">$200</span>
+              <div class="listing-tags">
+                <span class="tag">Wether</span>
+                <span class="tag tag-amber">Registerable</span>
+                <span class="tag">Available now</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cta-banner">
+        <p>Interested in either animal or want to learn more about our flock before visiting? We're happy to answer questions, share current photos, or arrange a farm visit in Gaston, Oregon.</p>
+        <a href="mailto:leaningtreefarmoforegon@gmail.com" class="cta-link">leaningtreefarmoforegon@gmail.com →</a>
+      </div>
+
+      <!-- PEDIGREES -->
+      <div class="pedigree-section">
+        <p class="section-label">Breeding flock</p>
+        <h2 class="section-title" style="font-size: clamp(20px,2.5vw,28px);">Flock pedigrees</h2>
+        <div class="divider"></div>
+        <p class="section-body">All animals at Leaning Tree Farm are from BBSAI-registered bloodlines. Below are the registration records for our core breeding flock. Both animals currently for sale are direct offspring of Bush Creek Shaun.</p>
+
+        <div class="pedigree-grid">
+
+          <div class="pedigree-card">
+            <div class="pedigree-header">
+              <div>
+                <div class="pedigree-name">Bush Creek Shaun</div>
+                <div class="pedigree-reg">RJG08154351BB</div>
+              </div>
+              <div class="pedigree-meta">
+                <div class="pedigree-dob">DOB: 8/11/2015 · Single</div>
+                <span class="tag">Ram</span>
+              </div>
+            </div>
+            <div class="pedigree-body">
+              <div class="parents-row">
+                <div class="parent-block"><div class="parent-role">Sire</div><div class="parent-name">Breedlove Gerhard</div><div class="parent-reg">BBB02143491BB</div></div>
+                <div class="parent-block"><div class="parent-role">Dam</div><div class="parent-name">RE7 Ashley</div><div class="parent-reg">RE704123422BB</div></div>
+              </div>
+              <div class="gp-label">Grandparents</div>
+              <div class="gp-grid">
+                <div class="gp-item"><span>Paternal sire</span>Bellwether Adrian</div>
+                <div class="gp-item"><span>Paternal dam</span>Bellwether Katrina</div>
+                <div class="gp-item"><span>Maternal sire</span>Lazy Lamb Trent</div>
+                <div class="gp-item"><span>Maternal dam</span>Lazy Lamb Delores Lola</div>
+              </div>
+              <div class="sale-note"><strong>Sire of both animals currently for sale.</strong></div>
+            </div>
+          </div>
+
+          <div class="pedigree-card">
+            <div class="pedigree-header">
+              <div>
+                <div class="pedigree-name">Bush Creek Mara Jade</div>
+                <div class="pedigree-reg">RJG08154352BB</div>
+              </div>
+              <div class="pedigree-meta">
+                <div class="pedigree-dob">DOB: 8/16/2015 · Twin</div>
+                <span class="tag">Ewe · Retired</span>
+              </div>
+            </div>
+            <div class="pedigree-body">
+              <div class="parents-row">
+                <div class="parent-block"><div class="parent-role">Sire</div><div class="parent-name">Alejandro VSU</div><div class="parent-reg">VSU 11133624BBx</div></div>
+                <div class="parent-block"><div class="parent-role">Dam</div><div class="parent-name">Marisha VSU</div><div class="parent-reg">VSU 12133627BBx</div></div>
+              </div>
+              <div class="gp-label">Grandparents</div>
+              <div class="gp-grid">
+                <div class="gp-item"><span>Paternal sire</span>VSU 9244 Bracken Brae</div>
+                <div class="gp-item"><span>Paternal dam</span>VSU 2071</div>
+                <div class="gp-item"><span>Maternal sire</span>VSU 1051</div>
+                <div class="gp-item"><span>Maternal dam</span>VSU 4650</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pedigree-card">
+            <div class="pedigree-header">
+              <div>
+                <div class="pedigree-name">Bush Creek Tess</div>
+                <div class="pedigree-reg">RJG10216965BB</div>
+              </div>
+              <div class="pedigree-meta">
+                <div class="pedigree-dob">DOB: 10/4/2021 · Twin</div>
+                <span class="tag">Ewe</span>
+              </div>
+            </div>
+            <div class="pedigree-body">
+              <div class="parents-row">
+                <div class="parent-block"><div class="parent-role">Sire</div><div class="parent-name">Hazlett's Tiberius</div><div class="parent-reg">HCB04133516BB</div></div>
+                <div class="parent-block"><div class="parent-role">Dam</div><div class="parent-name">Bush Creek Faith</div><div class="parent-reg">RJG11186081BB</div></div>
+              </div>
+              <div class="gp-label">Grandparents</div>
+              <div class="gp-grid">
+                <div class="gp-item"><span>Paternal sire</span>Hazlett's Leonardo</div>
+                <div class="gp-item"><span>Paternal dam</span>Hazlett's Nerosis</div>
+                <div class="gp-item"><span>Maternal sire</span>Summer Hill's Pan Dulce</div>
+                <div class="gp-item"><span>Maternal dam</span>Bush Creek Antebellum</div>
+              </div>
+              <div class="sale-note"><strong>Dam of Wether #26</strong> (available, born 5/5/2024)</div>
+            </div>
+          </div>
+
+          <div class="pedigree-card">
+            <div class="pedigree-header">
+              <div>
+                <div class="pedigree-name">Bush Creek Tarah</div>
+                <div class="pedigree-reg">RJG09216964BB</div>
+              </div>
+              <div class="pedigree-meta">
+                <div class="pedigree-dob">DOB: 9/30/2021 · Twin</div>
+                <span class="tag">Ewe</span>
+              </div>
+            </div>
+            <div class="pedigree-body">
+              <div class="parents-row">
+                <div class="parent-block"><div class="parent-role">Sire</div><div class="parent-name">Hazlett's Tiberius</div><div class="parent-reg">HCB04133516BB</div></div>
+                <div class="parent-block"><div class="parent-role">Dam</div><div class="parent-name">Bush Creek Bella</div><div class="parent-reg">RJG11186121BB</div></div>
+              </div>
+              <div class="gp-label">Grandparents</div>
+              <div class="gp-grid">
+                <div class="gp-item"><span>Paternal sire</span>Hazlett's Leonardo</div>
+                <div class="gp-item"><span>Paternal dam</span>Hazlett's Nerosis</div>
+                <div class="gp-item"><span>Maternal sire</span>Bush Creek Five-Oh</div>
+                <div class="gp-item"><span>Maternal dam</span>Kalissa VSU</div>
+              </div>
+              <div class="sale-note"><strong>Dam of Ewe Lamb #24</strong> (available, born 5/22/2024)</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="bloodline-note">
+          <strong>Note on the animals for sale:</strong> Both ewe lamb #24 and wether #26 are direct offspring of Bush Creek Shaun (RJG08154351BB), our founding ram. Their dams — Tarah and Tess respectively — share the same sire (Hazlett's Tiberius), making the two lambs half-siblings through their dams. Full registration paperwork transferable to buyer through BBSAI. Transfer fee $5 per animal.
+        </div>
+
+        <div class="registry-footer">
+          All breeding stock registered with the <strong>Barbados Blackbelly Sheep Association International (BBSAI)</strong>. We breed to the standard: tan to red-brown coat, solid black belly, polled, and clean-legged. Learn more at <a href="https://www.bbsai.org" target="_blank" rel="noopener">bbsai.org</a>.
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/components.js"></script>
+</body>
+</html>

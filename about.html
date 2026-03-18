@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Leaning Tree Farm of Oregon</title>
+  <meta name="description" content="The story of Leaning Tree Farm — from Manchester, CT to the hills of Gaston, Oregon.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .intro-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-style: italic;
+      color: var(--bark);
+      line-height: 1.7;
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+
+    .location-card {
+      background: var(--sage-pale);
+      border: 1px solid var(--sage-light);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .location-card strong { color: var(--bark); font-weight: 500; }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 500px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--sage-light);
+      border-radius: 8px;
+      padding: 1.1rem;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: var(--sage);
+      margin-bottom: 4px;
+    }
+
+    .stat-label { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px; top: 6px; bottom: 0;
+      width: 1.5px;
+      background: var(--sage-light);
+    }
+
+    .timeline-item { position: relative; margin-bottom: 2.5rem; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -2rem; top: 6px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--sage-pale);
+      border: 2px solid var(--sage);
+    }
+
+    .timeline-dot.amber { border-color: var(--amber); background: var(--amber-pale); }
+
+    .timeline-year {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--bark);
+      margin-bottom: 0.6rem;
+    }
+
+    .timeline-body { font-size: 15px; line-height: 1.8; color: var(--text-muted); max-width: 600px; }
+    .timeline-body + .timeline-body { margin-top: 0.75rem; }
+
+    .animal-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.75rem; }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: var(--white);
+      border: 1px solid var(--sage-light);
+      color: var(--bark-light);
+    }
+
+    .chip.star { background: var(--amber-pale); border-color: #e8c898; color: var(--amber); }
+    .chip.retired { background: var(--bark-pale); border-color: #ddd0c0; }
+
+    .highlight-box {
+      background: var(--sage-pale);
+      border-left: 3px solid var(--sage);
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin-top: 1rem;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    .highlight-box strong { color: var(--bark); font-weight: 500; }
+
+    .photo-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 500px) { .photo-pair { grid-template-columns: 1fr; } }
+
+    .photo-box {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--sage-light);
+      aspect-ratio: 4/3;
+      background: var(--sage-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-box img { width: 100%; height: 100%; object-fit: cover; }
+
+    .photo-caption {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 0.4rem;
+      font-style: italic;
+    }
+
+    .coming-item { opacity: 0.45; }
+    .coming-label { font-size: 13px; color: var(--bark-light); font-style: italic; margin-top: 0.4rem; }
+
+    /* Names section */
+    .names-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .name-card {
+      background: var(--white);
+      border: 1px solid var(--sage-light);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+    }
+
+    .name-animal { font-size: 14px; font-weight: 500; color: var(--bark); margin-bottom: 2px; }
+    .name-source { font-size: 12px; color: var(--text-muted); }
+
+    /* Current residents */
+    .residents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .resident-card {
+      background: var(--white);
+      border: 1px solid var(--sage-light);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .resident-type {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.5rem;
+    }
+
+    .resident-names { font-size: 14px; color: var(--bark); line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main>
+    <div class="page-header">
+      <p class="section-label">Our story</p>
+      <h1 class="section-title">From Connecticut to the <em style="color:var(--sage);font-style:italic;">hills of Oregon</em></h1>
+      <p class="section-body">A family, three dogs, and a dream property at the base of Bald Peak.</p>
+    </div>
+
+    <div class="section">
+      <p class="intro-quote">"We didn't plan on becoming farmers. But Oregon had other ideas."</p>
+
+      <div class="location-card">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="margin-top:2px;flex-shrink:0"><path d="M10 2a6 6 0 0 1 6 6c0 5-6 10-6 10S4 13 4 8a6 6 0 0 1 6-6z" stroke="#7a9c7a" stroke-width="1.5" fill="none"/><circle cx="10" cy="8" r="2" fill="#7a9c7a"/></svg>
+        <div><strong>Laurelwood area of Gaston, Oregon</strong> — at the base of Bald Peak, in the foothills of the Coast Range. Wine country on one side, timber country on the other, and exactly the kind of place where a farm belongs. Address: 12745 SW Moreno Drive, Gaston, OR 97119.</div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-num">2014</div><div class="stat-label">Arrived in Oregon</div></div>
+        <div class="stat-card"><div class="stat-num">8</div><div class="stat-label">First chickens, Christmas Eve</div></div>
+        <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Original alpacas, 2015</div></div>
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">January 2003 – October 2006</div>
+          <div class="timeline-heading">The family comes together</div>
+          <div class="timeline-body">Caroline — already a decade into raising her son Thomas as a single mom — met Dan in January 2003. They married in October 2006 at a rustic barn venue surrounded by fall foliage, a carriage horse, and an enormous bouquet. The farm was already foreshadowing itself.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">January 2014</div>
+          <div class="timeline-heading">A leap of faith across the country</div>
+          <div class="timeline-body">Caroline and Dan packed up their life in Manchester, Connecticut and headed west — with two Jack Russell terriers (Jasmine and Oy, named after the beloved character from Stephen King's Dark Tower series) and a mixed dog named Pickle. They landed in Tigard while they looked for the right place.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">November 2014</div>
+          <div class="timeline-heading">Finding the dream property</div>
+          <div class="timeline-body">It didn't take long. By that fall they'd found their place in the Laurelwood area of Gaston — tucked at the base of Bald Peak, with the kind of quiet that only comes when you're surrounded by fields and trees and not much else. The old leaning oak at the edge of the property gave the farm its name.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot amber"></div>
+          <div class="timeline-year">Christmas Eve, 2014</div>
+          <div class="timeline-heading">Eight chickens and a coop to build</div>
+          <div class="timeline-body">Their first animals arrived on Christmas Eve — eight chicks, full of personality and completely indifferent to the fact that their coop wasn't finished yet. Dan and Caroline built it themselves over the following months. The farm had officially begun.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Spring – Summer 2015</div>
+          <div class="timeline-heading">Love at first alpaca</div>
+          <div class="timeline-body">Dan took Caroline to visit EasyGo Farm, a local alpaca operation — perhaps not anticipating quite how well that would go. She was immediately smitten. Sunny and Taiga arrived first, followed shortly by Flirt, Tiara, and Kamatee — two of them already bred. The herd was growing.</div>
+          <div class="timeline-body" style="margin-top:0.75rem;">The alpacas' fiber has found a second life in Caroline's craft studio — handmade felted goods available at <a href="https://www.serenityfelting.com" target="_blank" rel="noopener" style="color:var(--sage);">serenityfelting.com</a>.</div>
+          <div class="animal-chips">
+            <span class="chip">🦙 Sunny</span>
+            <span class="chip">🦙 Taiga</span>
+            <span class="chip">🦙 Flirt</span>
+            <span class="chip">🦙 Tiara</span>
+            <span class="chip">🦙 Kamatee</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">October 2015</div>
+          <div class="timeline-heading">The first sheep arrive</div>
+          <div class="timeline-body">Two registered Barbados Blackbelly sheep came to Leaning Tree that fall — and they came with names already worthy of a farm legend. Shaun the Sheep and Mara Jade settled in, and what would become a beloved registered breeding program began.</div>
+          <div class="animal-chips">
+            <span class="chip">🐑 Shaun the Sheep</span>
+            <span class="chip star">🐑 Mara Jade</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot amber"></div>
+          <div class="timeline-year">2016</div>
+          <div class="timeline-heading">A year of arrivals — and a superstar is born</div>
+          <div class="timeline-body">Two more ewes, Anne and Priscilla, joined the flock in spring. Then came the babies: Arabella (Kamatee's cria, May 24), RamALamb (Mara's first lamb, June), and Luci-Fer (Tiara's cria, August 7). Mara went on to become the flock's most remarkable mom — consistently delivering triplets and raising every one of them with ease.</div>
+          <div class="highlight-box">
+            Mara Jade is now retired, but the farm kept one of her last daughters — <strong>Ventress</strong> — to carry on her legacy. RamALamb still lives on the farm as a pasture buddy for his dad, Shaun. Some animals just become part of the furniture.
+          </div>
+          <div class="animal-chips" style="margin-top: 0.75rem;">
+            <span class="chip star">⭐ Mara Jade — triplet superstar</span>
+            <span class="chip retired">Retired</span>
+            <span class="chip">🐑 Ventress — Mara's legacy</span>
+            <span class="chip">🐑 RamALamb — still on the farm</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2017 – 2019</div>
+          <div class="timeline-heading">The farm finds its rhythm</div>
+          <div class="timeline-body">Thomas moved out to the farm and lived there from 2017 to 2020. The alpaca family grew when EasyGo Farm closed and Caroline took in Spangle and Copper. The cat population expanded considerably — Crowley and Wolverine arrived as kittens in 2017, followed by Mantis, Nebula, and Gamora in 2018. Beefcake, the original feral rescue cat who had transformed into the farm's gentle ambassador for every new anxious animal, passed away not long after the kittens arrived. His legacy lives on in every cat that followed.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2022 – present</div>
+          <div class="timeline-heading">The flock grows — new blood, new faces</div>
+          <div class="timeline-body">Two new registered ewes, Tess and Tarah (both sired by Hazlett's Tiberius), joined the flock in February 2022. Their lambs — including the incorrigibly friendly Sir Nibbles, spared from his original destiny by sheer charisma — have added new generations to the Leaning Tree bloodline. Maynard joined in July 2024 (a shelter return who was kept forever after approximately three days), and Katy followed in November 2024 after months on the shelter website waiting for the right home.</div>
+          <div class="animal-chips">
+            <span class="chip">🐑 Sir Nibbles</span>
+            <span class="chip">🐶 Maynard</span>
+            <span class="chip">🐶 Katy</span>
+          </div>
+        </div>
+
+        <div class="timeline-item coming">
+          <div class="timeline-dot" style="border-color:var(--sage-light);background:var(--cream)"></div>
+          <div class="timeline-year">Spring 2025 and beyond...</div>
+          <div class="timeline-heading">The story continues</div>
+          <div class="timeline-body">Two new alpacas planned for spring. More lambs on the way. The farm keeps growing, changing, and collecting animals that needed a home.</div>
+          <div class="coming-label">— always more to come at Leaning Tree</div>
+        </div>
+
+      </div>
+
+      <!-- THE NAMES -->
+      <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--sage-light);">
+        <p class="section-label">A note on the names</p>
+        <h2 class="section-title" style="font-size: clamp(18px, 2.5vw, 26px);">Every animal earns a name</h2>
+        <div class="divider"></div>
+        <p class="section-body">Over the years, Leaning Tree's animals have been named after beloved characters from books, games, TV, and film — a tradition that says a lot about the people who live here.</p>
+        <div class="names-grid">
+          <div class="name-card"><div class="name-animal">Oy</div><div class="name-source">Stephen King — The Dark Tower</div></div>
+          <div class="name-card"><div class="name-animal">Mara Jade</div><div class="name-source">Star Wars</div></div>
+          <div class="name-card"><div class="name-animal">Ventress</div><div class="name-source">Star Wars: The Clone Wars</div></div>
+          <div class="name-card"><div class="name-animal">Crowley</div><div class="name-source">Supernatural</div></div>
+          <div class="name-card"><div class="name-animal">Mantis, Nebula, Gamora</div><div class="name-source">Guardians of the Galaxy</div></div>
+          <div class="name-card"><div class="name-animal">Wolverine</div><div class="name-source">X-Men</div></div>
+          <div class="name-card"><div class="name-animal">Arthur</div><div class="name-source">Red Dead Redemption</div></div>
+          <div class="name-card"><div class="name-animal">Scott Pilgrim</div><div class="name-source">Scott Pilgrim vs. the World</div></div>
+          <div class="name-card"><div class="name-animal">Luci-Fer</div><div class="name-source">Chaos energy, Oregon edition</div></div>
+          <div class="name-card"><div class="name-animal">Sir Nibbles</div><div class="name-source">Named by an AI. It stuck.</div></div>
+        </div>
+      </div>
+
+      <!-- CURRENT RESIDENTS -->
+      <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--sage-light);">
+        <p class="section-label">Who lives here</p>
+        <h2 class="section-title" style="font-size: clamp(18px, 2.5vw, 26px);">Current residents of Leaning Tree</h2>
+        <div class="divider"></div>
+        <div class="residents-grid">
+          <div class="resident-card">
+            <div class="resident-type">Dogs</div>
+            <div class="resident-names">Maynard<br>Katy</div>
+          </div>
+          <div class="resident-card">
+            <div class="resident-type">Cats</div>
+            <div class="resident-names">Crowley · Mantis<br>Nebula · Gamora</div>
+          </div>
+          <div class="resident-card">
+            <div class="resident-type">Sheep</div>
+            <div class="resident-names">Shaun · Mara Jade<br>RamALamb · Ventress<br>Tess · Tarah<br>Sir Nibbles · #24 · #26</div>
+          </div>
+          <div class="resident-card">
+            <div class="resident-type">Alpacas</div>
+            <div class="resident-names">Flirt · Spangle<br>Arabella · Luci-Fer</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/components.js"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaning Tree Farm of Oregon</title>
+  <meta name="description" content="Family-owned farm in Gaston, Oregon raising registered Barbados Blackbelly sheep at the base of Bald Peak.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .hero {
+      background: var(--sage-pale);
+      border-bottom: 1px solid var(--sage-light);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 400;
+      color: var(--bark);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero-tagline em { color: var(--sage); font-style: italic; }
+
+    .hero-sub {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bark-light);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .hero-illustration { margin: 0 auto 2.5rem; display: block; }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 600px) { .feature-grid { grid-template-columns: 1fr; } }
+
+    .feature-card {
+      padding: 1.5rem;
+      background: var(--white);
+      border: 1px solid var(--sage-light);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .feature-icon {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: var(--sage);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--bark);
+      margin-bottom: 0.35rem;
+    }
+
+    .feature-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    .highlight-strip {
+      background: var(--white);
+      border-top: 1px solid var(--sage-light);
+      border-bottom: 1px solid var(--sage-light);
+    }
+
+    .highlight-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 600px) { .highlight-inner { grid-template-columns: 1fr; } }
+
+    .highlight-image-box {
+      background: var(--sage-pale);
+      border: 1px solid var(--sage-light);
+      border-radius: 8px;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .highlight-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .highlight-text .section-title { font-size: clamp(20px, 2.5vw, 28px); }
+
+    .for-sale-strip { background: var(--bark-pale); border-top: 1px solid #ddd0c0; border-bottom: 1px solid #ddd0c0; }
+
+    .for-sale-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .for-sale-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--bark);
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+
+    .for-sale-text p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <svg class="hero-illustration" width="120" height="90" viewBox="0 0 120 90" fill="none">
+        <ellipse cx="60" cy="82" rx="46" ry="5" fill="#c8d9c0" opacity="0.5"/>
+        <rect x="56" y="52" width="8" height="30" rx="2" fill="#8a7260"/>
+        <path d="M60 8 L38 44 L47 44 L34 64 L54 64 L54 52 L66 52 L66 64 L86 64 L73 44 L82 44 Z" fill="#7a9c7a"/>
+        <path d="M60 8 L44 38 L52 38 L60 8Z" fill="#5c8060"/>
+        <ellipse cx="32" cy="72" rx="10" ry="8" fill="#c8d9c0" opacity="0.6"/>
+        <ellipse cx="90" cy="74" rx="8" ry="7" fill="#c8d9c0" opacity="0.5"/>
+      </svg>
+      <h1 class="hero-tagline">Where every day is a<br><em>little bit slower.</em></h1>
+      <p class="hero-sub">Family-owned and rooted in the hills of Oregon. We raise registered Barbados Blackbelly sheep and a whole menagerie of beloved animals with room to roam and a whole lot of heart.</p>
+      <div class="hero-location">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1a3.5 3.5 0 0 1 3.5 3.5C9.5 7.5 6 11 6 11S2.5 7.5 2.5 4.5A3.5 3.5 0 0 1 6 1z" stroke="#8a7260" stroke-width="1" fill="none"/><circle cx="6" cy="4.5" r="1.2" fill="#8a7260"/></svg>
+        Gaston, Oregon
+      </div>
+      <div class="hero-actions">
+        <a href="about.html" class="btn btn-primary">Our story</a>
+        <a href="forsale.html" class="btn">Animals for sale</a>
+      </div>
+    </section>
+
+    <!-- FEATURE CARDS -->
+    <section class="section">
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">✦</div>
+          <div class="feature-title">Registered Blackbelly</div>
+          <div class="feature-desc">BBSAI-registered Barbados Blackbelly sheep from documented bloodlines going back multiple generations.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✦</div>
+          <div class="feature-title">Family farm</div>
+          <div class="feature-desc">Hands-on care from people who genuinely love what they do — and the animals who do whatever they want.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✦</div>
+          <div class="feature-title">Oregon roots</div>
+          <div class="feature-desc">Tucked at the base of Bald Peak in Gaston, in the foothills of the Oregon Coast Range since 2014.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHT — MARA PHOTO -->
+    <section class="highlight-strip">
+      <div class="highlight-inner">
+        <div class="highlight-image-box">
+          <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
+            <rect width="200" height="200" fill="#eef3eb"/>
+            <ellipse cx="100" cy="140" rx="60" ry="40" fill="#c8966a" opacity="0.3"/>
+            <ellipse cx="100" cy="110" rx="40" ry="30" fill="#c8966a" opacity="0.4"/>
+            <ellipse cx="100" cy="90" rx="25" ry="22" fill="#c8966a" opacity="0.5"/>
+            <text x="100" y="170" text-anchor="middle" font-family="Georgia" font-size="13" fill="#8a7260" opacity="0.7">Photo coming soon</text>
+          </svg>
+        </div>
+        <div class="highlight-text">
+          <p class="section-label">The heart of the farm</p>
+          <h2 class="section-title">More than just livestock</h2>
+          <div class="divider"></div>
+          <p class="section-body">At Leaning Tree, every animal has a name, a personality, and a story. From Mara Jade the triplet-raising superstar to Mantis the cat who kneads sheep backs — this is a farm built on genuine love for the animals in our care.</p>
+          <br>
+          <a href="about.html" class="btn" style="margin-top: 0.5rem;">Read our story →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOR SALE STRIP -->
+    <section class="for-sale-strip">
+      <div class="for-sale-inner">
+        <div class="for-sale-text">
+          <h2>Animals currently available</h2>
+          <p>We have a ewe lamb and a wether lamb from our registered flock available now. Both from solid BBSAI bloodlines and can be registered upon purchase.</p>
+        </div>
+        <a href="forsale.html" class="btn btn-primary">View listings →</a>
+      </div>
+    </section>
+    <!-- SERENITY FELTING -->
+    <section class="section" style="padding-top:0;">
+      <div style="background:var(--bark-pale);border:1px solid #ddd0c0;border-radius:8px;padding:1.75rem 2rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+        <div style="flex:1;min-width:220px;">
+          <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);font-weight:500;margin-bottom:0.4rem;">Fiber arts from the farm</p>
+          <h2 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:var(--bark);margin-bottom:0.5rem;">Visit Serenity Felting</h2>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">The alpacas here at Leaning Tree contribute more than just personality — their fiber becomes handmade goods in Caroline's craft studio. Visit the Serenity Felting shop to see what the herd has been up to.</p>
+        </div>
+        <a href="https://www.serenityfelting.com" target="_blank" rel="noopener" class="btn btn-primary" style="white-space:nowrap;">Shop handmade goods ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/components.js"></script>
+</body>
+</html>

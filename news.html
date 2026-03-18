@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News &amp; Stories — Leaning Tree Farm of Oregon</title>
+  <meta name="description" content="News, stories and updates from Leaning Tree Farm in Gaston, Oregon.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .blog-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media (max-width: 680px) { .blog-layout { grid-template-columns: 1fr; } }
+
+    .post {
+      background: var(--white);
+      border: 1px solid var(--sage-light);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .post:hover { border-color: var(--sage); }
+
+    .post-header { padding: 1.5rem 1.75rem 0; }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .post-date { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); }
+
+    .post-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--bark);
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+
+    .post-excerpt { font-size: 14px; line-height: 1.8; color: var(--text-muted); padding: 0 1.75rem; }
+
+    .post-footer {
+      padding: 1rem 1.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.75rem;
+      border-top: 1px solid var(--sage-light);
+    }
+
+    .post-author { font-size: 12px; color: var(--text-muted); font-style: italic; }
+
+    .post-placeholder {
+      background: var(--cream);
+      border: 1px dashed var(--sage-light);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .post-placeholder p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+    /* Sidebar */
+    .sidebar { position: sticky; top: 80px; }
+
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--sage-light);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .sidebar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      color: var(--bark);
+      margin-bottom: 1rem;
+    }
+
+    .category-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .category-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--text-muted);
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--sage-pale);
+    }
+
+    .category-list li:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .cat-count {
+      font-size: 11px;
+      background: var(--sage-pale);
+      color: var(--sage);
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+
+    .sidebar-about {
+      background: var(--sage-pale);
+      border-color: var(--sage-light);
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main>
+    <div class="page-header">
+      <p class="section-label">From the farm</p>
+      <h1 class="section-title">News &amp; Stories</h1>
+      <p class="section-body">Life at Leaning Tree, as it happens — the arrivals, the milestones, and the occasional chaos.</p>
+    </div>
+
+    <div class="section">
+      <div class="blog-layout">
+        <div class="blog-posts">
+
+          <div class="post">
+            <div class="post-header">
+              <div class="post-meta">
+                <span class="post-date">March 2026</span>
+                <span class="tag">Farm life</span>
+              </div>
+              <h2 class="post-title">Spring is coming — and so are new alpacas</h2>
+            </div>
+            <p class="post-excerpt">With Flirt and Spangle getting up there in years, we're planning to bring two new younger alpacas to Leaning Tree this spring. It's always bittersweet thinking about the herd changing, but it's the right time to keep things going. More updates soon on who we find!</p>
+            <div class="post-footer">
+              <span class="post-author">— Caroline</span>
+            </div>
+          </div>
+
+          <div class="post-placeholder">
+            <p>More stories coming soon. Check back for updates on new arrivals, farm life, and whatever the animals have been up to. Which is always something.</p>
+          </div>
+
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">Categories</h3>
+            <ul class="category-list">
+              <li>Sheep <span class="cat-count">coming soon</span></li>
+              <li>Alpacas <span class="cat-count">coming soon</span></li>
+              <li>Dogs &amp; cats <span class="cat-count">coming soon</span></li>
+              <li>Farm life <span class="cat-count">1</span></li>
+              <li>New arrivals <span class="cat-count">coming soon</span></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-about">
+            <h3 class="sidebar-title">About the farm</h3>
+            <p>Leaning Tree Farm is a small family farm in the Laurelwood area of Gaston, Oregon, raising registered Barbados Blackbelly sheep and a menagerie of beloved animals at the base of Bald Peak.</p>
+          </div>
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">Get in touch</h3>
+            <p style="font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:0.75rem;">Questions about our animals or want to visit the farm?</p>
+            <a href="mailto:leaningtreefarmoforegon@gmail.com" class="btn btn-primary" style="font-size:12px;padding:0.5rem 1rem;">Email us</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/components.js"></script>
+</body>
+</html>
