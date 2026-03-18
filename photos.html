@@ -8,87 +8,23 @@
   <link rel="stylesheet" href="css/style.css">
   <style>
     .photo-section { margin-bottom: 3rem; }
-
-    .photo-section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 400;
-      color: var(--bark);
-      margin-bottom: 1rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--sage-light);
-    }
-
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-    }
-
+    .photo-section-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; color: var(--bark); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--sage-light); }
+    .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
     @media (max-width: 500px) { .photo-grid { grid-template-columns: 1fr 1fr; } }
-
     .photo-item { position: relative; }
-
-    .photo-box {
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--sage-light);
-      aspect-ratio: 1;
-      background: var(--sage-pale);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: border-color 0.2s;
-    }
-
+    .photo-box { border-radius: 8px; overflow: hidden; border: 1px solid var(--sage-light); aspect-ratio: 1; background: var(--sage-pale); display: flex; align-items: center; justify-content: center; transition: border-color 0.2s; }
     .photo-box:hover { border-color: var(--sage); }
     .photo-box img { width: 100%; height: 100%; object-fit: cover; }
-
     .photo-box.wide { aspect-ratio: 16/9; }
-    .photo-box.tall { aspect-ratio: 3/4; }
-
-    .photo-caption {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 0.4rem;
-      line-height: 1.4;
-      font-style: italic;
-    }
-
-    .placeholder-label {
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-top: 0.5rem;
-      text-align: center;
-    }
-
-    .video-embed {
-      background: var(--sage-pale);
-      border: 1px solid var(--sage-light);
-      border-radius: 8px;
-      aspect-ratio: 16/9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.5rem;
-      overflow: hidden;
-    }
-
+    .photo-caption { font-size: 12px; color: var(--text-muted); margin-top: 0.4rem; line-height: 1.4; font-style: italic; }
+    .video-embed { background: var(--sage-pale); border: 1px solid var(--sage-light); border-radius: 8px; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; overflow: hidden; }
     .video-embed iframe { width: 100%; height: 100%; border: none; }
-
-    .video-placeholder {
-      text-align: center;
-      padding: 2rem;
-    }
-
+    .video-placeholder { text-align: center; padding: 2rem; }
     .video-placeholder p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
   </style>
 </head>
 <body>
   <div id="nav-placeholder"></div>
-
   <main>
     <div class="page-header">
       <p class="section-label">Around the farm</p>
@@ -98,167 +34,178 @@
 
     <div class="section">
 
-      <!-- THE BEGINNING -->
       <div class="photo-section">
-        <h2 class="photo-section-title">Christmas Eve 2014 — where it all started</h2>
+        <h2 class="photo-section-title">The farmers</h2>
         <div class="photo-grid">
-          <div class="photo-item">
-            <div class="photo-box">
-              <img src="images/chicks_box.jpg" alt="Eight baby chicks in a cardboard box on Christmas Eve 2014" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-label').style.display='block'">
-              <span class="placeholder-label" style="display:none">Christmas Eve chicks</span>
-            </div>
-            <div class="photo-caption">The original eight chicks, Christmas Eve 2014. The whole farm started in this box.</div>
+          <div class="photo-item" style="grid-column:span 2;">
+            <div class="photo-box wide"><img src="images/dan_caroline.jpg" alt="Dan and Caroline"></div>
+            <div class="photo-caption">Caroline and Dan — the heart of Leaning Tree Farm.</div>
           </div>
           <div class="photo-item">
-            <div class="photo-box">
-              <img src="images/chicks_brooder.jpg" alt="Chicks in the grow-out brooder" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-label').style.display='block'">
-              <span class="placeholder-label" style="display:none">Brooder chicks</span>
-            </div>
-            <div class="photo-caption">The crew in the grow-out brooder — one already claiming the waterer as a throne.</div>
-          </div>
-          <div class="photo-item">
-            <div class="photo-box">
-              <img src="images/first_egg.jpg" alt="Caroline holding the first egg" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-label').style.display='block'">
-              <span class="placeholder-label" style="display:none">First egg</span>
-            </div>
-            <div class="photo-caption">Caroline holding the very first egg from the flock. A milestone.</div>
+            <div class="photo-box"><img src="images/mara_caroline.jpg" alt="Caroline with Mara Jade"></div>
+            <div class="photo-caption">Caroline and Mara Jade. This photo explains everything.</div>
           </div>
         </div>
       </div>
 
-      <!-- CHICKEN COOP -->
       <div class="photo-section">
-        <h2 class="photo-section-title">The coop Dan built</h2>
-        <div class="photo-grid">
-          <div class="photo-item" style="grid-column: span 2;">
-            <div class="photo-box wide">
-              <img src="images/chicken_coop.jpg" alt="The finished chicken coop" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-label').style.display='block'">
-              <span class="placeholder-label" style="display:none">Finished coop</span>
-            </div>
-            <div class="photo-caption">The finished chicken coop, built by hand with a corrugated roof. Spring 2015.</div>
-          </div>
-          <div class="photo-item">
-            <div class="photo-box">
-              <img src="images/chicken_screaming.jpg" alt="Chicken with a lot of opinions" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-label').style.display='block'">
-              <span class="placeholder-label" style="display:none">Opinionated chicken</span>
-            </div>
-            <div class="photo-caption">A chicken with a lot of opinions and zero filter.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- DOGS -->
-      <div class="photo-section">
-        <h2 class="photo-section-title">The dogs of Leaning Tree</h2>
+        <h2 class="photo-section-title">The dogs</h2>
         <div class="photo-grid">
           <div class="photo-item">
-            <div class="photo-box">
-              <img src="images/maynard_portrait.jpg" alt="Maynard" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-label').style.display='block'">
-              <span class="placeholder-label" style="display:none">Maynard</span>
-            </div>
+            <div class="photo-box"><img src="images/maynard_portrait.jpg" alt="Maynard"></div>
             <div class="photo-caption">Maynard. Guardian of Mud and Memory. Born 12/11/2023.</div>
           </div>
           <div class="photo-item">
-            <div class="photo-box">
-              <img src="images/katy_portrait.jpg" alt="Katy" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-label').style.display='block'">
-              <span class="placeholder-label" style="display:none">Katy</span>
-            </div>
+            <div class="photo-box"><img src="images/katy_portrait.jpg" alt="Katy"></div>
             <div class="photo-caption">Katy. Those ears receive signals from three counties over. Born 5/8/2024.</div>
           </div>
           <div class="photo-item">
-            <div class="photo-box">
-              <img src="images/maynard_katy_couch.jpg" alt="Maynard and Katy on the couch" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-label').style.display='block'">
-              <span class="placeholder-label" style="display:none">Maynard & Katy</span>
-            </div>
-            <div class="photo-caption">Maynard and Katy, off duty. The Totoro plushie is an uncredited supporting character.</div>
+            <div class="photo-box"><img src="images/maynard_katy_couch.jpg" alt="Maynard and Katy"></div>
+            <div class="photo-caption">Off duty. The Totoro plushie is an uncredited supporting character.</div>
           </div>
         </div>
       </div>
 
-      <!-- SHEEP -->
+      <div class="photo-section">
+        <h2 class="photo-section-title">The cats</h2>
+        <div class="photo-grid">
+          <div class="photo-item">
+            <div class="photo-box"><img src="images/mantis_closeup.jpg" alt="Mantis"></div>
+            <div class="photo-caption">Mantis on a fence post. Green eyes, Oregon pasture, zero concerns.</div>
+          </div>
+          <div class="photo-item">
+            <div class="photo-box"><img src="images/nebula_closeup.jpg" alt="Nebula"></div>
+            <div class="photo-caption">Nebula with golden eyes. The outdoor life suits her.</div>
+          </div>
+          <div class="photo-item">
+            <div class="photo-box"><img src="images/crowley_gamora.jpg" alt="Crowley and Gamora"></div>
+            <div class="photo-caption">Crowley on top, Gamora below. The indoor cats in their natural habitat.</div>
+          </div>
+          <div class="photo-item">
+            <div class="photo-box"><img src="images/gamora_pickle.jpg" alt="Gamora with Pickle"></div>
+            <div class="photo-caption">Gamora snuggled against Pickle. A lovely memory.</div>
+          </div>
+          <div class="photo-item" style="grid-column:span 2;">
+            <div class="photo-box wide"><img src="images/mantis_sheep_alpacas.jpg" alt="Mantis on sheep back with alpacas"></div>
+            <div class="photo-caption">Mantis kneading a sheep's back, surrounded by alpacas (Taiga, Kamatee, Arabella, Luci-Fur). Mantis does not acknowledge the audience.</div>
+          </div>
+        </div>
+      </div>
+
       <div class="photo-section">
         <h2 class="photo-section-title">The sheep</h2>
         <div class="photo-grid">
           <div class="photo-item">
-            <div class="photo-box">
-              <img src="images/shaun.jpg" alt="Shaun the Sheep" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-label').style.display='block'">
-              <span class="placeholder-label" style="display:none">Shaun</span>
-            </div>
+            <div class="photo-box"><img src="images/shaun.jpg" alt="Shaun the Sheep"></div>
             <div class="photo-caption">Shaun the Sheep — the patriarch. He knows he's handsome.</div>
           </div>
           <div class="photo-item">
-            <div class="photo-box">
-              <img src="images/mara_caroline.jpg" alt="Caroline with Mara Jade" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-label').style.display='block'">
-              <span class="placeholder-label" style="display:none">Caroline & Mara</span>
-            </div>
-            <div class="photo-caption">Caroline and Mara Jade. This photo explains everything about Leaning Tree Farm.</div>
+            <div class="photo-box"><img src="images/tarah_closeup.jpg" alt="Tarah"></div>
+            <div class="photo-caption">Tarah, up close and very personal. Zero concept of personal space.</div>
           </div>
           <div class="photo-item">
-            <div class="photo-box">
-              <img src="images/thomas_lamb.jpg" alt="Thomas with a lamb" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-label').style.display='block'">
-              <span class="placeholder-label" style="display:none">Thomas & lamb</span>
-            </div>
+            <div class="photo-box"><img src="images/mara_snow.jpg" alt="Mara in the snow"></div>
+            <div class="photo-caption">Mara in the snow. She has opinions about it.</div>
+          </div>
+          <div class="photo-item">
+            <div class="photo-box"><img src="images/mara_triplets.jpg" alt="Mara with triplets"></div>
+            <div class="photo-caption">Mara Jade with her triplets. The superstar mom in her element.</div>
+          </div>
+          <div class="photo-item">
+            <div class="photo-box"><img src="images/mara_mantis.jpg" alt="Mara with Mantis tail"></div>
+            <div class="photo-caption">Mara in labor, with Mantis offering moral support via tail.</div>
+          </div>
+          <div class="photo-item">
+            <div class="photo-box"><img src="images/thomas_lamb.jpg" alt="Thomas with a lamb"></div>
             <div class="photo-caption">Thomas holding a lamb in front of the red barn, October 2016.</div>
+          </div>
+          <div class="photo-item">
+            <div class="photo-box"><img src="images/lambs_2022.jpg" alt="Group of lambs 2022"></div>
+            <div class="photo-caption">Spring lambs 2022 in the daisy field. A boy band photo shoot they didn't agree to.</div>
+          </div>
+          <div class="photo-item" style="grid-column:span 2;">
+            <div class="photo-box wide"><img src="images/animals_meeting.jpg" alt="Alpacas meeting new sheep"></div>
+            <div class="photo-caption">The welcoming committee assembles. Spangle leads the investigation of new arrivals Tess and Tarah, February 2022.</div>
           </div>
         </div>
       </div>
 
-      <!-- ALPACAS -->
       <div class="photo-section">
         <h2 class="photo-section-title">The alpacas</h2>
         <div class="photo-grid">
           <div class="photo-item">
-            <div class="photo-box">
-              <img src="images/taiga_snow_full.jpg" alt="Taiga in the snow" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-label').style.display='block'">
-              <span class="placeholder-label" style="display:none">Taiga in snow</span>
-            </div>
+            <div class="photo-box"><img src="images/taiga_snow_full.jpg" alt="Taiga in the snow"></div>
             <div class="photo-caption">Taiga in the snow. Regal and ridiculous in equal measure.</div>
           </div>
           <div class="photo-item">
-            <div class="photo-box">
-              <img src="images/taiga_closeup.jpg" alt="Taiga close up" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-label').style.display='block'">
-              <span class="placeholder-label" style="display:none">Taiga closeup</span>
-            </div>
-            <div class="photo-caption">Taiga up close. Snow in her whiskers, something stuck in her topknot, no apologies.</div>
+            <div class="photo-box"><img src="images/taiga_closeup.jpg" alt="Taiga close up"></div>
+            <div class="photo-caption">Taiga up close. Snow in her whiskers, something in her topknot, no apologies.</div>
           </div>
           <div class="photo-item">
-            <div class="photo-box">
-              <img src="images/sunny_belle.jpg" alt="Sunny with Belle the chicken on her back" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-label').style.display='block'">
-              <span class="placeholder-label" style="display:none">Sunny & Belle</span>
-            </div>
+            <div class="photo-box"><img src="images/taiga_silly.jpg" alt="Taiga being silly"></div>
+            <div class="photo-caption">Taiga with a mouthful of hay. The dingbat personality fully on display.</div>
+          </div>
+          <div class="photo-item" style="grid-column:span 2;">
+            <div class="photo-box wide"><img src="images/copper_spangle.jpg" alt="Copper and Spangle"></div>
+            <div class="photo-caption">Copper (brown) and Spangle (gray) with Tiara on the left. Two EasyGo Farm alumni who made Leaning Tree their forever home.</div>
+          </div>
+          <div class="photo-item">
+            <div class="photo-box"><img src="images/sunny_belle.jpg" alt="Sunny with Belle the chicken"></div>
             <div class="photo-caption">Sunny with Belle the chicken on her back. Sunny has no objections.</div>
           </div>
         </div>
       </div>
 
-      <!-- FARM CROSSOVERS -->
       <div class="photo-section">
-        <h2 class="photo-section-title">Farm crossovers</h2>
+        <h2 class="photo-section-title">The turkeys</h2>
         <div class="photo-grid">
-          <div class="photo-item" style="grid-column: span 2;">
-            <div class="photo-box wide">
-              <img src="images/mantis_sheep_alpacas.jpg" alt="Mantis on a sheep's back surrounded by alpacas" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-label').style.display='block'">
-              <span class="placeholder-label" style="display:none">Mantis on sheep</span>
-            </div>
-            <div class="photo-caption">Mantis kneading a sheep's back, surrounded by alpacas (Taiga, Kamatee, Arabella, Luci-Fer). Mantis does not acknowledge the audience.</div>
+          <div class="photo-item">
+            <div class="photo-box"><img src="images/scott_pilgrim.jpg" alt="Scott Pilgrim"></div>
+            <div class="photo-caption">Scott Pilgrim in full display. The rooster behind him is unimpressed.</div>
           </div>
           <div class="photo-item">
-            <div class="photo-box">
-              <img src="images/caroline_turkey.jpg" alt="Caroline with Ella the turkey on her back" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-label').style.display='block'">
-              <span class="placeholder-label" style="display:none">Turkey on Caroline</span>
-            </div>
-            <div class="photo-caption">Ella the turkey hen on Caroline's back. She chose this spot.</div>
+            <div class="photo-box"><img src="images/ella_turkey.jpg" alt="Ella the turkey hen"></div>
+            <div class="photo-caption">Ella the turkey hen, fan spread wide.</div>
+          </div>
+          <div class="photo-item">
+            <div class="photo-box"><img src="images/caroline_turkey.jpg" alt="Caroline with Ella on her back"></div>
+            <div class="photo-caption">Ella on Caroline's back. She chose this spot. Caroline just went with it.</div>
           </div>
         </div>
       </div>
 
-      <!-- VIDEO -->
+      <div class="photo-section">
+        <h2 class="photo-section-title">The early days</h2>
+        <div class="photo-grid">
+          <div class="photo-item">
+            <div class="photo-box"><img src="images/chicks_box.jpg" alt="Baby chicks Christmas Eve 2014"></div>
+            <div class="photo-caption">The original eight chicks, Christmas Eve 2014. The whole farm started in this box.</div>
+          </div>
+          <div class="photo-item">
+            <div class="photo-box"><img src="images/chicks_brooder.jpg" alt="Chicks in the brooder"></div>
+            <div class="photo-caption">The crew in the grow-out brooder — one already claiming the waterer as a throne.</div>
+          </div>
+          <div class="photo-item">
+            <div class="photo-box"><img src="images/first_egg.jpg" alt="First egg"></div>
+            <div class="photo-caption">Caroline holding the very first egg from the flock.</div>
+          </div>
+          <div class="photo-item" style="grid-column:span 2;">
+            <div class="photo-box wide"><img src="images/chicken_coop.jpg" alt="The finished chicken coop"></div>
+            <div class="photo-caption">The finished chicken coop, built by hand by Dan. Spring 2015.</div>
+          </div>
+          <div class="photo-item">
+            <div class="photo-box"><img src="images/chicken_screaming.jpg" alt="Opinionated chicken"></div>
+            <div class="photo-caption">A chicken with a lot of opinions and zero filter.</div>
+          </div>
+        </div>
+      </div>
+
       <div class="photo-section">
         <h2 class="photo-section-title">Video</h2>
         <div class="video-embed">
           <div class="video-placeholder">
             <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin:0 auto 1rem;display:block"><circle cx="24" cy="24" r="22" stroke="#c8d9c0" stroke-width="1.5" fill="none"/><path d="M20 16 L34 24 L20 32 Z" fill="#7a9c7a" opacity="0.6"/></svg>
-            <p>Mantis kneading Priscilla's back with Spangle and Copper in the background.<br><em>Video coming soon — upload to YouTube and share the link to embed here.</em></p>
+            <p>Mantis kneading Priscilla's back with Spangle and Copper in the background.<br><em>Video coming soon — upload to YouTube and share the link to add it here.</em></p>
           </div>
         </div>
       </div>
