@@ -2,10 +2,11 @@
 const NAV_HTML = `
 <nav>
   <a href="index.html" class="nav-brand">
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <path d="M14 4 L8 14 L11 14 L7 21 L13 21 L13 24 L15 24 L15 21 L21 21 L17 14 L20 14 Z" fill="#7a9c7a" opacity="0.85"/>
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <path d="M16 3 Q13 8 10 10 Q7 12 7 15 Q7 17 9 18 L7 22 L13 22 L13 26 Q13 27 14 27 L18 27 Q19 27 19 26 L19 22 L25 22 L23 18 Q25 17 25 15 Q25 12 22 10 Q19 8 16 3Z" fill="#7a9c7a"/>
+      <path d="M16 3 Q14 9 11 12 Q9 14 9 16 L16 3Z" fill="#5c8060" opacity="0.4"/>
     </svg>
-    Leaning Tree Farm
+    Leaning Tree Farm of Oregon
   </a>
   <button class="nav-hamburger" aria-label="Menu">
     <span></span><span></span><span></span>

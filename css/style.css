@@ -46,7 +46,7 @@ nav {
 
 .nav-brand {
   font-family: 'Playfair Display', serif;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--bark);
   letter-spacing: 0.02em;
@@ -54,6 +54,7 @@ nav {
   align-items: center;
   gap: 10px;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-links {
