@@ -18,6 +18,7 @@ const NAV_HTML = `
     <li><a href="photos.html">Photos</a></li>
     <li><a href="news.html">News &amp; stories</a></li>
     <li><a href="coopiverse.html">The Coopiverse</a></li>
+    <li><a href="barncam.html">Live from the Pasture</a></li>
     <li><a href="https://www.serenityfelting.com" target="_blank" rel="noopener" style="color:var(--amber);">Fiber shop ↗</a></li>
   </ul>
 </nav>`;
