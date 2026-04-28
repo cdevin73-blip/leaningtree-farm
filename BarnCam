@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live from the Pasture — Leaning Tree Farm of Oregon</title>
+  <meta name="description" content="Watch the herd live from Leaning Tree Farm in Gaston, Oregon. Live pasture cam featuring our alpacas and sheep.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .cam-hero {
+      background: var(--sage-pale);
+      border-bottom: 1px solid var(--sage-light);
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+    }
+    .cam-container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 3.5rem;
+    }
+    .cam-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid var(--sage-light);
+      background: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .cam-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .cam-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+    }
+    .cam-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .cam-detail-card {
+      background: var(--white);
+      border: 1px solid var(--sage-light);
+      border-radius: 8px;
+      padding: 1.1rem 1.25rem;
+      text-align: center;
+    }
+    .cam-detail-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.35rem;
+    }
+    .cam-detail-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      color: var(--bark);
+    }
+    .offline-note {
+      background: var(--bark-pale);
+      border: 1px solid #ddd0c0;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+  </style>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <main>
+    <div class="cam-hero">
+      <p class="section-label">Live stream</p>
+      <h1 class="section-title">📷 Live from the Pasture</h1>
+      <p class="section-body" style="margin: 0.5rem auto 0; max-width: 500px;">Watch the herd live from Leaning Tree Farm — alpacas, sheep, and whoever else decides to wander into frame.</p>
+    </div>
+    <div class="cam-container">
+      <div class="cam-wrapper">
+        <iframe
+          src="https://g1.ipcamlive.com/player/player.php?alias=69efd0f9ba4cd&skin=white&autoplay=1&mute=1&disableautofullscreen=1&disablestorageplayer=1&disabledownloadbutton=1&disableplaybackspeedbutton=1&disablenavigation=1"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="cam-note">Stream is live during daylight hours from Gaston, Oregon. The camera features night vision — so feel free to check in after dark too. Pan, tilt, and zoom are managed from the farm side. If the stream appears offline, the camera may be rebooting or experiencing a brief connection hiccup — check back in a few minutes.</p>
+      <div class="cam-details">
+        <div class="cam-detail-card">
+          <div class="cam-detail-label">Location</div>
+          <div class="cam-detail-value">Gaston, Oregon</div>
+        </div>
+        <div class="cam-detail-card">
+          <div class="cam-detail-label">What you might see</div>
+          <div class="cam-detail-value">Alpacas · Sheep · The occasional cat</div>
+        </div>
+        <div class="cam-detail-card">
+          <div class="cam-detail-label">Night vision</div>
+          <div class="cam-detail-value">Up to 328ft</div>
+        </div>
+      </div>
+      <div class="offline-note">
+        Stream not loading? The camera may be adjusting or briefly offline. Refresh the page or try again in a few minutes. For questions, reach us at <a href="mailto:leaningtreefarmoforegon@gmail.com" style="color:var(--sage);">leaningtreefarmoforegon@gmail.com</a>.
+      </div>
+    </div>
+  </main>
+  <div id="footer-placeholder"></div>
+  <script src="js/components.js"></script>
+</body>
+</html>
