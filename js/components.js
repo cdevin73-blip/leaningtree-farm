@@ -18,34 +18,36 @@ const NAV_HTML = `
     <li><a href="photos.html">Photos</a></li>
     <li><a href="news.html">News &amp; stories</a></li>
     <li><a href="coopiverse.html">The Coopiverse</a></li>
+    <li><a href="barncam.html">Live from the Pasture</a></li>
     <li><a href="https://www.serenityfelting.com" target="_blank" rel="noopener" style="color:var(--amber);">Fiber shop ↗</a></li>
   </ul>
 </nav>`;
-
 const FOOTER_HTML = `
 <footer>
   <div class="footer-brand">Leaning Tree Farm of Oregon</div>
-  <div class="footer-sub">Gaston, Oregon · Registered Barbados Blackbelly Sheep</div>
+  <div class="footer-sub">Gaston, Oregon · Registered Barbados Blackbelly Sheep &amp; Huacaya Alpacas</div>
   <div class="footer-email"><a href="mailto:leaningtreefarmoforegon@gmail.com">leaningtreefarmoforegon@gmail.com</a></div>
   <div style="margin-top:0.5rem;font-size:12px;color:var(--text-muted);">Fiber arts from the farm: <a href="https://www.serenityfelting.com" target="_blank" rel="noopener" style="color:var(--sage);">serenityfelting.com</a></div>
 </footer>`;
-
 document.addEventListener('DOMContentLoaded', function () {
   // Inject nav
   const navPlaceholder = document.getElementById('nav-placeholder');
-  if (navPlaceholder) navPlaceholder.innerHTML = NAV_HTML;
-
+  if (navPlaceholder) {
+    navPlaceholder.innerHTML = NAV_HTML;
+    navPlaceholder.style.display = 'contents';
+  }
   // Inject footer
   const footerPlaceholder = document.getElementById('footer-placeholder');
-  if (footerPlaceholder) footerPlaceholder.innerHTML = FOOTER_HTML;
-
+  if (footerPlaceholder) {
+    footerPlaceholder.innerHTML = FOOTER_HTML;
+    footerPlaceholder.style.display = 'contents';
+  }
   // Mobile nav toggle
   const hamburger = document.querySelector('.nav-hamburger');
   const navLinks = document.querySelector('.nav-links');
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
   }
-
   // Active link
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(link => {
